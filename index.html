@@ -7,7 +7,29 @@
     <script defer src="./index.js"></script>
     <script defer src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+<body class="bg-[#C3A1D2] flex justify-center">
+    <div class="container flex flex-col items-center gap-5 py-5 overflow-auto text-[#311195] px-5">
+        <h1 class="text-4xl uppercase">food recipes</h1>
+
+        <form class="flex flex-col gap-5" id="searchMealForm">
+            <input type="text" placeholder="Search a meal" class="focus:outline-none px-4 py-2 rounded-sm placeholder:text-[#311195] placeholder:opacity-55">
+            <input class="bg-[#FC9400] text-white px-4 py-2 font-bold" type="submit" value="SEARCH">
+        </form>
+
+        <div id="recipe"></div>
+
+        <template>
+            <div class="w-full relative p-5 flex bg-white rounded-md">
+                <img class="w-1/2" src="https://placehold.co/600x400" id="recipe-img">
+                <div class="px-5">
+                    <h1 id="name" class="font-bold">Name</h1>
+                    <p id="category">Category</p>
+                    <p id="area">area</p>
+                </div>
+                <button class="absolute uppercase -bottom-5 -right-2 bg-[#FC9400] text-white px-4 py-2">view recipe</button>
+            </div>
+        </template>
+
+    </div>
 </body>
 </html>
