@@ -13,6 +13,8 @@ const modalClose = document.querySelectorAll("[data-modal-close]");
 searchMealForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    recipesContainer.innerHTML = "";
+
     fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + mealInput.value)
   .then(response => {
     if (!response.ok) {
@@ -22,6 +24,12 @@ searchMealForm.addEventListener("submit", (e) => {
     return response.json();
   })
   .then(data => {
+
+    if (!data.meals) {
+        alert("Meal not found.");
+        return;
+    }
+
     data.meals.forEach(e => {
         const {idMeal, strArea, strInstructions, strCategory, strMeal, strMealThumb} = e;
         const meal = recipeTemplate.cloneNode(true);
