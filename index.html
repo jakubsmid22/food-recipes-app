@@ -20,7 +20,7 @@
 
         <form class="flex flex-col gap-5" id="searchMealForm">
             <input id="meal" type="text" placeholder="Search a meal" class="focus:outline-none px-4 py-2 rounded-sm placeholder:text-[#311195] placeholder:opacity-55">
-            <input class="bg-[#FC9400] text-white px-4 py-2 font-bold" type="submit" value="SEARCH">
+            <input class="bg-[#FC9400] cursor-pointer text-white px-4 py-2 font-bold" type="submit" value="SEARCH">
         </form>
 
         <div id="recipe" class="flex flex-col gap-10 py-5"></div>
@@ -30,7 +30,7 @@
             <h1 id="modalName" class="font-bold">Name</h1>
             <p id="modalCategory">Category</p>
             <p id="modalArea">Area</p>
-            <img class="md:w-80" src="https://placehold.co/600x400" id="modalImg">
+            <img class="md:w-80 object-cover" src="https://placehold.co/600x400" id="modalImg">
             <p id="instructions" class="text-center">Instructions</p>
             <button data-modal-close class="bg-[#FC9400] text-white px-4 py-2">Close</button>
         </dialog>
@@ -39,7 +39,7 @@
 
         <template id="recipeTemplate">
             <div class="w-full md:h-52 relative p-5 flex bg-white rounded-md">
-                <img class="w-1/2" src="https://placehold.co/600x400" id="recipe-img">
+                <img class="w-1/2 object-cove" src="https://placehold.co/600x400" id="recipe-img">
                 <div class="px-5">
                     <h1 id="name" class="font-bold">Name</h1>
                     <p id="category">Category</p>
