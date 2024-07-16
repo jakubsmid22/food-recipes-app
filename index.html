@@ -6,6 +6,13 @@
     <title>Recipes</title>
     <script defer src="./index.js"></script>
     <script defer src="https://cdn.tailwindcss.com"></script>
+    <style>
+        dialog:not([open]) { display: none; }
+        dialog::backdrop {
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body class="bg-[#C3A1D2] flex justify-center">
     <section class="min-h-screen flex flex-col items-center gap-5 py-5 overflow-auto text-[#311195] px-5">
@@ -16,17 +23,29 @@
             <input class="bg-[#FC9400] text-white px-4 py-2 font-bold" type="submit" value="SEARCH">
         </form>
 
-        <div id="recipe" class="flex flex-col gap-10"></div>
+        <div id="recipe" class="flex flex-col gap-10 py-5"></div>
+
+        <dialog class="w-[90%] max-h-[90%] fixed overflow-auto flex flex-col items-center text-[#311195] gap-5 p-5 backdrop-blur backdrop-brightness-50 z-50" id="recipeModal">
+            <button data-modal-close class="absolute top-0 right-0 w-5 h-5 rounded-full bg-[#FC9400] flex items-center justify-center text-white">X</button>
+            <h1 id="modalName" class="font-bold">Name</h1>
+            <p id="modalCategory">Category</p>
+            <p id="modalArea">Area</p>
+            <img class="md:w-80" src="https://placehold.co/600x400" id="modalImg">
+            <p id="instructions" class="text-center">Instructions</p>
+            <button data-modal-close class="bg-[#FC9400] text-white px-4 py-2">Close</button>
+        </dialog>
+        
+        
 
         <template id="recipeTemplate">
-            <div class="w-full relative p-5 flex bg-white rounded-md">
+            <div class="w-full md:h-52 relative p-5 flex bg-white rounded-md">
                 <img class="w-1/2" src="https://placehold.co/600x400" id="recipe-img">
                 <div class="px-5">
                     <h1 id="name" class="font-bold">Name</h1>
                     <p id="category">Category</p>
                     <p id="area">area</p>
                 </div>
-                <button class="absolute uppercase -bottom-5 -right-2 bg-[#FC9400] text-white px-4 py-2">view recipe</button>
+                <button id="viewRecipe" class="absolute uppercase -bottom-5 -right-2 bg-[#FC9400] text-white px-4 py-2">view recipe</button>
             </div>
         </template>
 
